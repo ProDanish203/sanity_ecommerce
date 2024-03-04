@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Footer, Header } from "@/components/shared";
 
 export const metadata: Metadata = {
   title: "Pyzon Ecommerce | One Stop Shop",
@@ -24,7 +25,15 @@ export default function RootLayout({
           referrerPolicy="no-referrer"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <Header/>
+
+        <main className="max-w-7xl mx-auto w-full px-4 py-10">
+          {children}
+        </main>
+
+        {/* <Footer/> */}
+      </body>
     </html>
   );
 }
