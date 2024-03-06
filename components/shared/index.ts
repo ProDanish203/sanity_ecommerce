@@ -1,3 +1,6 @@
+import { Products } from './Products';
+import { Hero } from './Hero';
 import { Footer } from './Footer';
 import { Header } from './Header';
-export { Header, Footer }
+
+export { Header, Footer, Hero, Products }
