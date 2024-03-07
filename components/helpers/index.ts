@@ -1,2 +1,3 @@
-import { ProductCard } from './ProductCard';
-export { ProductCard }
+import { ImageGallery } from "./ImageGallery";
+
+export { ImageGallery };
