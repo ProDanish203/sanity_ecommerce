@@ -65,7 +65,7 @@
   padding: 0;
   box-sizing: border-box;
   transition: 0.2s;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
   text-decoration: none;
   list-style: none;
 }

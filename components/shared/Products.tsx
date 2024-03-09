@@ -1,4 +1,5 @@
 import { client } from "@/lib/sanity";
+import { Product } from "@/lib/types";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,15 +19,6 @@ const getProducts = async () => {
   return data;
 };
 
-interface Product {
-  _id: string;
-  name: string;
-  image: string;
-  slug: string;
-  category: string;
-  price: number;
-}
-
 export const Products = async () => {
   const data: Product[] = await getProducts();
   return (
@@ -35,7 +27,10 @@ export const Products = async () => {
         <h2 className="text-3xl font-semibold tracking-tight">
           Latest Products
         </h2>
-        <Link href="/all" className="flex items-center gap-x-1 text-primary">
+        <Link
+          href="/category/all"
+          className="flex items-center gap-x-1 text-primary"
+        >
           See All{" "}
           <span>
             <ArrowRight />
@@ -63,7 +58,9 @@ export const Products = async () => {
                 </h3>
                 <p className="text-gray-500 mt-1">{prod.category}</p>
               </div>
-              <p className="font-semibold text-lg text-primary">${prod.price}</p>
+              <p className="font-semibold text-lg text-primary">
+                ${prod.price}
+              </p>
             </div>
           </div>
         ))}

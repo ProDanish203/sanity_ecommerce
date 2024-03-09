@@ -49,22 +49,22 @@ export const Hero = async () => {
         </div>
       </div>
 
-      <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
+      <div className="flex flex-col items-center justify-between gap-8 md:flex-row mt-4">
         <div className="flex h-12 w-64 divide-x overflow-hidden rounded-lg border">
           <Link
-            href="/men"
+            href="/category/Men"
             className="flex w-1/3 items-center justify-center text-gray-500 transition duration-100 hover:bg-gray-200 active:bg-gray-200"
           >
             Men
           </Link>
           <Link
-            href="/women"
+            href="/category/Women"
             className="flex w-1/3 items-center justify-center text-gray-500 transition duration-100 hover:bg-gray-200 active:bg-gray-200"
           >
             Women
           </Link>
           <Link
-            href="/kids"
+            href="/category/Kids"
             className="flex w-1/3 items-center justify-center text-gray-500 transition duration-100 hover:bg-gray-200 active:bg-gray-200"
           >
             Kids
