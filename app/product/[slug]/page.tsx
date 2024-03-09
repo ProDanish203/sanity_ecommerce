@@ -4,6 +4,8 @@ import { client } from "@/lib/sanity";
 import { ProductSingle } from "@/lib/types";
 import { ChevronRight, Star, Truck } from "lucide-react";
 
+export const dynamic = "force-dynamic"
+
 const getProduct = async (slug: string) => {
   const query = `
     *[_type == "product" && slug.current == "${slug}"][0]{

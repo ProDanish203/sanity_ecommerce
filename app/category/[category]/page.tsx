@@ -4,6 +4,8 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic"
+
 const getCategories = async (category: string) => {
   const query = `
   *[_type == "product" && category->name == "${category}"]{
