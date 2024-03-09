@@ -15,6 +15,7 @@ export interface ProductSingle {
   slug: string;
   category: string;
   price: number;
+  price_id: string;
 }
 
 
@@ -24,4 +25,5 @@ export interface ProductCart{
   price: number;
   currency: string;
   image: any;   
+  price_id: string;
 }

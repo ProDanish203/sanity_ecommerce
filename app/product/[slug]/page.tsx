@@ -13,7 +13,8 @@ const getProduct = async (slug: string) => {
           description,
           "slug": slug.current,
           price,
-          "category": category->name
+          "category": category->name,
+          price_id
       }
     `;
   const data = await client.fetch(query);
@@ -73,8 +74,16 @@ const ProductPage = async ({ params }: { params: { slug: string } }) => {
               image={data.images[0]}
               name={data.name}
               price={data.price}
+              price_id={data.price_id}
             />
-            <CheckoutButton />
+            <CheckoutButton
+              currency="USD"
+              description={data.description}
+              image={data.images[0]}
+              name={data.name}
+              price={data.price}
+              price_id={data.price_id}
+            />
           </div>
 
           <p className="text-base mt-12 text-gray-500 tracking-wide">

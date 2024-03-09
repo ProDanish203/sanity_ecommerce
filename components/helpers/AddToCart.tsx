@@ -10,6 +10,7 @@ export const AddToCart = ({
   image,
   name,
   price,
+  price_id
 }: ProductCart) => {
   const { addItem, handleCartClick } = useShoppingCart();
 
@@ -19,7 +20,7 @@ export const AddToCart = ({
     price,
     currency,
     image: urlFor(image).url(),
-    id: "kasghd",
+    id: price_id,
   };
 
   return (

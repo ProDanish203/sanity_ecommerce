@@ -8,6 +8,7 @@ import {
 import { ShoppingBag } from "lucide-react";
 import Image from "next/image";
 import { useShoppingCart } from "use-shopping-cart";
+import { Button } from "../ui/button";
 
 export const Cart = () => {
   const {
@@ -16,20 +17,34 @@ export const Cart = () => {
     handleCartClick,
     cartDetails,
     removeItem,
+    totalPrice,
+    redirectToCheckout
   } = useShoppingCart();
-  
+
+  const handleCheckout = async () => {
+    try{
+      const result = await redirectToCheckout()
+      console.log("result", result)
+      if(result?.error){
+        console.log(result)
+      }
+    }catch(error){
+
+    }
+  }
+
   return (
     <Sheet open={shouldDisplayCart} onOpenChange={() => handleCartClick()}>
       <SheetContent className="max-sm:w-screen max-sm:pl-2 sm:min-w-[450px]">
-        <SheetHeader>
+        <SheetHeader className="pb-6">
           <SheetTitle className="flex items-center gap-2">
             <ShoppingBag className="size-6" />
             Shopping Cart
           </SheetTitle>
         </SheetHeader>
 
-        <div className="h-full flex flex-col justify-between">
-          <div className="mt-8 flex-1 overflow-y-auto">
+        <div className="h-full flex flex-col justify-between border-t border-gray-300 pb-6">
+          <div className="flex-1 overflow-y-auto">
             <ul className="divide-y divide-gray-300">
               {cartCount === 0 ? (
                 <h2 className="text-lg text-gray-500">No items in cart</h2>
@@ -83,6 +98,20 @@ export const Cart = () => {
                 </>
               )}
             </ul>
+          </div>
+
+          <div className="border-t border-gray-300 px-4 py-6 sm:px-6">
+            <div className="flex justify-between text-base font-medium">
+              <p>Subtotal:</p>
+              <p className="font-bold text-lg">${totalPrice}</p>
+            </div>
+            <p className="text-gray-500 text-sm -mt-1">
+              Prices are inclusive of all taxes
+            </p>
+
+            <div className="mt-4">
+              <Button className="w-full" onClick={handleCheckout}>Checkout</Button>
+            </div>
           </div>
         </div>
       </SheetContent>
